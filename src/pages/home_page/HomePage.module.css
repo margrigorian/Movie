@@ -1,0 +1,192 @@
+.content{
+    display: flex;
+    width: 100%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.nav{
+    width: 20%;
+    border-right: 1px solid lightgrey;
+}
+ul{
+    margin: 16% 0 14% 17%;
+}
+.liHome{
+    color: black;
+    font-weight: bold;
+}
+.liHome:hover{
+        color: black;
+    }
+.homeIcon{
+    border-bottom: 3px solid orange;
+    padding-bottom: 1%;
+}
+li{
+    list-style-type: none; 
+    display: flex;
+    align-items: center;
+    color: rgb(143, 142, 142);
+    margin-bottom: 8%;
+    padding-bottom: 2.5%;
+    font-family: 'FedraSansPro Book';
+    font-size: 18px;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+li:hover{
+    color: rgb(79, 78, 78);
+}
+li p{
+    padding-left: 6%;
+}
+.containerForContent{
+    padding-bottom: 6%;
+    width: 80%;
+}
+.video{
+    position: relative;
+    margin: 3.5% 3.5% 0 3.5%; 
+    display: flex;
+    justify-content: space-between; 
+    text-align: right;
+}
+.blackStencil{
+    position: absolute;
+    top: -3%;
+    left: 0;
+    width: 45%;
+    height: 120%;
+    background-image: url("../../pictures/8-grunge-brush-stroke-square-4.png");
+    background-size: 100% 100%;
+    font-size: 12.5px;
+}
+.blackStencil p{
+    text-align: left;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.name{
+    padding: 10% 0 1% 19%;
+    font-size: 20px;
+    color: rgb(222, 222, 169);
+}
+.fontMedium{
+    padding: 3% 0 0 14%;
+    display: inline-block;
+    width: 105%;
+    color: lightgrey;
+}
+.importantRoles{
+    color: rgb(222, 222, 169);
+    margin: 6% 0 2% 44%;
+}
+.сreator{
+    margin: 0 0 0 36%;
+    color: rgb(222, 222, 169);
+}
+.spanColor{
+    color: lightgrey;
+}
+.subscription{
+    font-size: 18px;
+    color: orange;
+    padding: 5% 0 0 19%;
+}
+.buttonsContainer{
+    margin: 10% 0 0 19%;;
+    width: 65%;
+    display: flex;
+}
+.buttonWatch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 6%;
+    border: none;
+    border-radius: 4px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    background-color: rgb(222, 222, 169);
+    margin-right: 3%;
+    cursor: pointer;
+}
+.playIcon{
+    margin-right: 5%;
+}
+.buttonWillWatch{
+    color: white;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 1.5%;
+    border: none;
+    border-radius: 4px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    background-color: rgb(62, 61, 61);
+    cursor: pointer;
+}
+.buttonWillWatch:hover .iconPlus{
+    color: lightgrey;
+}
+.iconPlus{
+    font-size: 20px;
+    margin-right: 5%;
+    font-weight: normal;
+    color: grey;
+}
+.caption{
+    color: orange;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 6% 0 3% 10%;
+}
+
+.containerNewFilm{
+    width: 86%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+}
+.newFilmImg{
+    width: 22%;
+    height: 280px;
+    cursor: pointer;
+    background-size: cover;
+}
+.newFilm1{
+    background-image: url("../../pictures/old.jpg");
+}
+.newFilm2{
+    background-image: url("../../pictures/The_Adam_Project.jpg");
+}
+.newFilm3{
+    background-image: url("../../pictures/emergency.jpg");
+}
+.newFilm4{
+    background-image: url("../../pictures/eternals.jpg");
+}
+.containerPopMovies{
+    width: 92%;
+    background-image: url("../../pictures/8-grunge-brush-stroke-square-4.png");
+    background-position: cover;
+    background-size: 100% 100%;
+    margin: -2% 0 0 4%;
+    padding: 6% 0 6% 6%;
+    /* border: 1px solid; */
+}
+.containerPopMovies p{
+    padding: 0  0 3% 0;
+}
+.postersContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.posterPopMovie{
+    margin-bottom: 4%;
+    width: 18%;
+    height: 20%;
+    border:0.5px solid rgb(53, 53, 53);
+    cursor: pointer;
+}

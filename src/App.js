@@ -3,13 +3,12 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/navbar/NavBar';
 import Footer from './components/footer/Footer';
-import request from './lib/request';
-import { moviesData } from './lib/links';
+import HomePage from './pages/home_page/HomePage';
 
 function App() {
   const [searchMovies, setSearchMovies] = useState([]);
 
-  console.log(searchMovies);
+  // console.log(searchMovies);
 
   return (
     <div className="App">
@@ -17,7 +16,7 @@ function App() {
         <NavBar setSearchMovies={setSearchMovies} />
 
         <Routes>
-          <Route path="/"></Route>
+          <Route path="/" element={<HomePage />}></Route>
         </Routes>
 
         <div className={style.wrapper}>
