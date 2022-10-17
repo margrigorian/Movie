@@ -1,0 +1,53 @@
+.container{
+    width: 100%;
+    min-height: 50vh;
+    background-color: rgb(255, 165, 0);
+}
+.listContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 6% 0 5% 2%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.containerPoster{
+    width: 12%;
+    height: 250px;
+    margin: 0 2.2% 6% 0;
+}
+.movieImage{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.moviesName{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5%;
+    cursor: pointer;
+}
+.moviesName:hover{
+    text-decoration: underline;
+}
+
+.containerNotFound{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.notFoundImg{
+    width: 100px;
+    height: 100px;
+    background-image: url("../../pictures/mov.png");
+    background-size: cover;
+    background-position: center;
+}
+.notFoundText{
+    margin: -40px 0 0 10px;
+    font-size: 55px;
+    font-weight: bold;
+}

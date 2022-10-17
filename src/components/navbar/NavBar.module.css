@@ -63,6 +63,7 @@
     position: absolute;
     right: 9%;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     color: rgb(79, 78, 78);
     cursor: pointer;

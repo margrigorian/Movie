@@ -20,7 +20,6 @@ export default function HomePage() {
         async function getPopMovies() {
             const movies = await request("GET", popMovies);
             setPopularMovies(movies.data.results);
-            console.log(movies.data.results);
         }
 
         getPopMovies();

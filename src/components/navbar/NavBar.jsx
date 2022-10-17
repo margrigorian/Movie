@@ -1,16 +1,17 @@
 import React from 'react';
 import style from "./NavBar.module.css";
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useState, useEffect } from 'react';
 import request from '../../lib/request';
 import { moviesData } from '../../lib/links';
 
-export default function NavBar({setSearchMovies}) {
+export default function NavBar({setSearchMovies, setOpenCinemaListNavBar}) {
     const [inputText, setInputText] = useState("");
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export default function NavBar({setSearchMovies}) {
         <div className={style.header}>
             <div className={style.logoMovieName}></div>
             <div className={style.headerMenu}>
-                <div className={style.logo}></div>
+                <NavLink to="/" className={style.logo} />
                 <div className={style.middlePartHeaderMenu}>
                     <div className={`${style.iconsPlayContainer} ${style.iconsHover}`}>
                         <PlayArrowIcon sx={{color: "grey", fontSize: "20px"}} />
@@ -50,7 +51,13 @@ export default function NavBar({setSearchMovies}) {
                     />
                     <div className={style.containerIconSearch}>
                         <TuneRoundedIcon sx={{color: "grey", fontSize: "22px"}} className={style.sliders} />
-                        <SearchOutlinedIcon sx={{color: "grey", fontSize: "22px"}} className={style.search} />
+                        <NavLink to={inputText === "" ? "/" : "/cinema_list"} style={{color: "rgb(87, 86, 86)"}}>
+                            <SearchOutlinedIcon 
+                                sx={{ontSize: "22px", marginTop: "5px"}} 
+                                className={style.search} 
+                                onClick={() => inputText !== "" ? setOpenCinemaListNavBar(true) : undefined}
+                            />
+                        </NavLink>
                     </div>
                 </div>
                 <div className={style.lastPartHeaderMenu}>
