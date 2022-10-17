@@ -1,0 +1,58 @@
+.footer{
+    background-color: black;
+    color: grey;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.containerSocialIcons{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 5% 0 2% 0;
+}
+.iconsHover:hover{
+    color: rgb(223, 219, 219);
+    cursor: pointer;
+}  
+.footerNav{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    font-size: 16px;
+}
+.footerNav p:hover{
+    color: rgb(223, 219, 219);  
+    cursor: pointer;
+}
+.containerLastPartFooter{
+    width: 36%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 3.5% 0;
+}
+.containerAppStoreAndOther{
+    width: 31%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: rgb(43, 43, 43);
+    font-size: 16px;
+}
+.icon{
+    margin-right: 3%;
+}
+.textSizeSmall{
+    font-size: 12px;
+    margin-bottom: -3px;
+}
+.containerAppStoreAndOther:hover{
+    color: lightgrey;
+    background-color: rgb(62, 61, 61);
+    cursor: pointer;
+}
