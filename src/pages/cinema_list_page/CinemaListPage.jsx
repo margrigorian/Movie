@@ -1,8 +1,9 @@
 import React from 'react';
 import style from "./CinemaListPage.module.css";
 import { moviesPoster } from '../../lib/links';
+import { NavLink } from 'react-router-dom';
 
-export default function CinemaListPage({searchMovies}) {
+export default function CinemaListPage({searchMovies, setOpenCinemaListNavBar}) {
   return (
     <div className={style.container}>
       {
@@ -11,12 +12,20 @@ export default function CinemaListPage({searchMovies}) {
               {
                 searchMovies.map(item =>
                     <div key={`MovieId-${item.id}`} className={style.containerPoster}>
-                      <img 
-                        src={item.poster_path !== null ? `${moviesPoster}${item.poster_path}` : "https://play-lh.googleusercontent.com/EyGeHDzvT92J8CKflSPw-1jJErfpeN5dv1TGYQlN4RD6HW681vRjVg8iBgFzJG9bWyo"} 
-                        className={style.movieImage} 
-                        alt="poster" 
-                      />
-                      <p className={style.moviesName}>{item.title}</p>
+                      <NavLink to={`/current_movie/${item.id}`}>
+                        <img 
+                          src={item.poster_path !== null ? `${moviesPoster}${item.poster_path}` : "https://play-lh.googleusercontent.com/EyGeHDzvT92J8CKflSPw-1jJErfpeN5dv1TGYQlN4RD6HW681vRjVg8iBgFzJG9bWyo"} 
+                          className={style.movieImage} 
+                          alt="poster" 
+                        />
+                      </NavLink>
+                      <NavLink to={`/current_movie/${item.id}`} style={{textDecoration: "none", color: "black"}}>
+                        <p 
+                          className={style.moviesName} 
+                        >
+                          {item.title}
+                        </p>
+                      </NavLink>
                     </div>
                 )
               }

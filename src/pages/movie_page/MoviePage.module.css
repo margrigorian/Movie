@@ -1,0 +1,100 @@
+.back{
+    width: 100%;
+    min-height: 88vh;
+    background-image: url("../../pictures/fon.jpg");
+    background-size: cover;
+    background-position: center 100.5%;
+}
+.container{
+    width: 100%;
+    min-height: 88vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 3% 3% 10% 2.5%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:  rgb(64, 63, 63);
+}
+.content{
+    width: 72%;
+}
+.movieContainer{
+    height: 63vh;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4%;
+}
+.poster{
+    width: 21vw;
+    height: 100%;
+    margin-right: 40px;
+    border: 1px solid grey;
+}
+.aboutMovie{
+    width: 65%;
+    /* border: 1px solid; */
+}
+.movieName{
+    font-size: 36px;
+    font-weight: bold;
+}
+.yearOfMovie{
+    font-size: 36px;
+    font-weight: bold;
+    padding-bottom: 4%;
+}
+.movieDiscription{
+    text-align: justify;
+    /* padding-right: 3%; */
+    font-size: 16px;
+    color: black;
+}
+.trailerButtonContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 4%;
+}
+.trailerButton{
+    color: rgb(45, 45, 45);
+    display: flex;
+    align-items: center;
+    padding: 2.5% 16%;
+    margin-right: 3%;
+    background-color: rgb(234, 160, 23);
+    /* background: linear-gradient(to right, white 0%, #FF8C00 100%); */
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.buttonName{
+    font-size: 16px;
+    padding-left: 5%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.bookmarkIcon{
+    color:rgb(45, 45, 45);
+    font-size: 22px;
+    margin-right: 2%;
+}
+.iconHover:hover {
+    color: grey;
+    cursor: pointer;
+}
+.averageVote{
+    font-size: 40px;
+    margin: 3% 0 1% 0;
+    font-weight: bold;
+}
+.voteCount{
+    color: grey;
+    font-size: 14px;
+}
+
+
+.trailerContainer{
+    width: 20vw;
+    /* border: 1px solid; */
+}
+.video{
+    margin-bottom: 10%;
+}

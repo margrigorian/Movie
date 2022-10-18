@@ -1,7 +1,8 @@
 .container{
     width: 100%;
     min-height: 50vh;
-    background-color: rgb(255, 165, 0);
+    /* background-color: rgb(39, 39, 38); */
+    background-color: orange;
 }
 .listContainer{
     display: flex;
@@ -11,6 +12,7 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .containerPoster{
+    box-shadow: 10px 10px 10px black;
     width: 12%;
     height: 250px;
     margin: 0 2.2% 6% 0;
