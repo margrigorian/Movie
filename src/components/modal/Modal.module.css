@@ -1,0 +1,36 @@
+.modalContainer{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalContent{
+    position: relative;
+    width: 55%;
+    height: 65%;
+    background-color: black;
+    border: 2px solid rgb(82, 52, 21);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.closeIcon{
+    top: -70px;
+    right: -70px;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-image: url("../../pictures/Close@2x.png");
+    background-size: cover;
+    cursor: pointer;
+}
+.text{
+    color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+}

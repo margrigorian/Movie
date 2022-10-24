@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./CinemaListPage.module.css";
 import { moviesPoster } from '../../lib/links';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+import request from '../../lib/request';
+import { moviesData } from '../../lib/links';
 
-export default function CinemaListPage({searchMovies, setOpenCinemaListNavBar}) {
+export default function CinemaListPage() {
+  const {movieName} = useParams();
+  const [loading, setLoading] = useState(true);
+  const [searchMovies, setSearchMovies] = useState([]);
+
+  useEffect(() => {
+    async function getMovieList() {
+      const movies = await request("GET", moviesData(movieName));
+      setSearchMovies(movies.data.results);
+      setLoading(false);
+    }
+
+    getMovieList();
+
+  }, [movieName, searchMovies])
+
   return (
     <div className={style.container}>
       {
+        loading ? 
+          <div className={style.containerNotFound}>
+            <div className={style.loading}></div>
+          </div> :
+        
         searchMovies.length !== 0 ?
           <div className={style.listContainer}>
               {
@@ -32,7 +54,6 @@ export default function CinemaListPage({searchMovies, setOpenCinemaListNavBar}) 
           </div> : 
             
           <div className={style.containerNotFound}>
-              {/* <img src="../../pictures/movie.png" className={style.notFoundImg} alt="imgNotFound" /> */}
               <div className={style.notFoundImg}></div>
               <p className={style.notFoundText}>NOT FOUND</p>
           </div>

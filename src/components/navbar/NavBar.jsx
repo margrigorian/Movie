@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./NavBar.module.css";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import VideocamIcon from '@mui/icons-material/Videocam';
@@ -8,25 +8,9 @@ import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import request from '../../lib/request';
-import { moviesData } from '../../lib/links';
 
-export default function NavBar({setSearchMovies, setOpenCinemaListNavBar}) {
+export default function NavBar() {
     const [inputText, setInputText] = useState("");
-
-    useEffect(() => {
-        if(inputText) {
-            const handle = setTimeout( async () => {
-                const movies = await request("GET", moviesData(inputText));
-                setSearchMovies(movies.data.results);
-            }, 1000)
-
-            return () => {
-                clearTimeout(handle);
-            } 
-        }
-        // Ругается. Правильно ли в завимисимость указывать функцию setSearchMovies?
-    }, [inputText, setSearchMovies])
 
     return (
         <div className={style.header}>
@@ -51,11 +35,11 @@ export default function NavBar({setSearchMovies, setOpenCinemaListNavBar}) {
                     />
                     <div className={style.containerIconSearch}>
                         <TuneRoundedIcon sx={{color: "grey", fontSize: "22px"}} className={style.sliders} />
-                        <NavLink to={inputText === "" ? "/" : "/cinema_list"} style={{color: "rgb(87, 86, 86)"}}>
+                        <NavLink to={inputText === "" ? "/" : `/cinema_list/${inputText}`} style={{color: "rgb(87, 86, 86)"}}>
                             <SearchOutlinedIcon 
                                 sx={{ontSize: "22px", marginTop: "5px"}} 
                                 className={style.search} 
-                                onClick={() => inputText !== "" ? setOpenCinemaListNavBar(true) : undefined}
+                                onClick={() => setInputText("")}
                             />
                         </NavLink>
                     </div>

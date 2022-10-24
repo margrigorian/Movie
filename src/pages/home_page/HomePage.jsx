@@ -12,6 +12,7 @@ import AddIcon from '@mui/icons-material/Add';
 import request from '../../lib/request';
 import { popMovies } from '../../lib/links';
 import { moviesPoster } from '../../lib/links';
+import { NavLink } from 'react-router-dom';
 
 export default function HomePage() {
     const [popularMovies, setPopularMovies] = useState([]);
@@ -27,6 +28,9 @@ export default function HomePage() {
 
     return (
         <div className={style.content}>
+            {
+                console.log(popularMovies)
+            }
             <div className={style.nav}>
                 <ul>
                     <li className={style.liHome}>
@@ -74,22 +78,27 @@ export default function HomePage() {
                     <div className={`${style.newFilmImg} ${style.newFilm4}`}></div>
                 </div>
                 <p className={style.caption}>Popular films</p>
-                <div className={style.containerPopMovies}>
-                    <div className={style.postersContainer}>
-                        {
-                            popularMovies.map((item, i) => {
-                                    if(i < 10) {
-                                        return <img 
-                                            key={`MovieId-${item.id}`} 
-                                            src={`${moviesPoster}${item.poster_path}`} alt="poster" 
-                                            className={style.posterPopMovie}
-                                        />    
-                                    }
+                {
+                    popularMovies.length > 0 ? 
+                        <div className={style.containerPopMovies}>
+                            <div className={style.postersContainer}>
+                                {
+                                    popularMovies.filter((el, i) => i < 10).map(item =>  
+                                        <NavLink to={`/current_movie/${item.id}`}>
+                                            <img 
+                                                key={`MovieId-${item.id}`} 
+                                                src={`${moviesPoster}${item.poster_path}`} alt="poster" 
+                                                className={style.posterPopMovie}
+                                            />    
+                                        </NavLink>
+                                    )
                                 }
-                            )
-                        }
-                    </div>
-                </div>
+                            </div>
+                        </div> : 
+                        <div className={style.loadingContainer}>
+                            <div className={style.loading}></div>
+                        </div> 
+                }
             </div>
 
         </div>

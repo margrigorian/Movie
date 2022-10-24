@@ -3,20 +3,26 @@ import { useParams } from 'react-router-dom';
 import style from "./MoviePage.module.css";
 import request from '../../lib/request';
 import { moviesPoster } from '../../lib/links';
-import { getVideos } from '../../lib/links';
+import { getMovie, getVideos } from '../../lib/links';
 import Actors from '../../components/actors/Actors';
+import Modal from '../../components/modal/Modal';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-export default function MoviePage({searchMovies}) {
-    const [movie, setMovie] = useState({});
+export default function MoviePage() {
+    const [movie, setMovie] = useState(null);
     const [trailers, setTrailers] = useState([]);
+    const [openModal, setOpenModal] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
-        const currentMovie = searchMovies.find(item => item.id === +id);
-        setMovie(currentMovie);
+        async function getCurrentMovie() {
+            const currentMovie = await request("GET", getMovie(id));
+            setMovie(currentMovie.data);
+        }
+
+        getCurrentMovie();
 
         async function getTrailers() {
             const allTrailers = await request("GET", getVideos(id));
@@ -25,9 +31,18 @@ export default function MoviePage({searchMovies}) {
 
         getTrailers();
 
-    }, [searchMovies, id])
+    }, [id])
 
-    console.log(trailers);
+    console.log(movie);
+
+    if (movie === null)
+        return (
+            <div className={style.back}>
+                <div className={style.container}>
+                    <div className={style.loading}></div>
+                </div>
+            </div>
+        )
 
     return (
         <div className={style.back}>
@@ -49,7 +64,7 @@ export default function MoviePage({searchMovies}) {
                             </p>
                             <p className={style.movieDiscription}>{movie.overview}</p>
                             <div className={style.trailerButtonContainer}>
-                                <div className={style.trailerButton}>
+                                <div className={style.trailerButton} onClick={() => setOpenModal(true)}>
                                     <PlayArrowIcon sx={{fontSize: "20px"}} />
                                     <p className={style.buttonName}>Trailer</p>
                                 </div>
@@ -67,22 +82,37 @@ export default function MoviePage({searchMovies}) {
                     trailers.length > 0 &&
                         <div className={style.trailerContainer}>
                             {
-                                trailers.map((item, i) => 
-                                    i < 3 ? 
-                                    <video 
-                                        key={`VideoId-${item.id}`} 
-                                        width="100%" 
-                                        height="180px" 
-                                        controls
-                                        className={style.video}
-                                    >
-                                        <source src={`https://www.youtube.com/embed/${item.key}`} />
-                                    </video> : undefined
+                                trailers.filter((el, i) => i < 2).map((item, i) => 
+                                <iframe 
+                                    key={`VideoId-${item.id}`}  
+                                    width="100%" 
+                                    height="180" 
+                                    src={`https://www.youtube.com/embed/${item.key}`} 
+                                    className={style.video}
+                                    title="YouTube video player" 
+                                    frameBorder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowFullScreen 
+                                />
+                                    // <video 
+                                    //     key={`VideoId-${item.id}`} 
+                                    //     width="100%" 
+                                    //     height="180px" 
+                                    //     controls
+                                    //     className={style.video}
+                                    // >
+                                    //     <source src={`https://www.youtube.com/watch?v=${item.key}`}  type="video/mp4"/>
+                                    // </video>
                                 )
                             }
                         </div>
                 }
             </div>
+
+            {
+                openModal && <Modal trailer={trailers[0]} setOpenModal={setOpenModal} />
+            }
+
         </div>
     )
 }

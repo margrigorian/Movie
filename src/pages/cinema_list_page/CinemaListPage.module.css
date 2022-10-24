@@ -1,8 +1,13 @@
 .container{
     width: 100%;
     min-height: 50vh;
-    /* background-color: rgb(39, 39, 38); */
     background-color: orange;
+}
+.loading{
+    background-image: url("../../pictures/giphy.gif");
+    background-size: cover;
+    width: 200px;
+    height: 200px;
 }
 .listContainer{
     display: flex;
